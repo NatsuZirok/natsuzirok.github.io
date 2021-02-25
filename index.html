@@ -1,20 +1,47 @@
-<input type="text" id="string_of_calc">
-<button onclick="parse_this_shit()">CALC!</button>
-<div id="result"></div>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <title>Строковый калькулятор</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-body">
+              <div class="input-group">
+                <input type="text" class="form-control" id="calc_string" placeholder="Input here">
+                <button class="btn btn-outline-secondary" type="button" onclick="calc_line()">Calculate!</button>
+              </div>
+            </div>
+            <div class="card-footer">
+              <input class="form-control" type="text" placeholder="Result" id="result" readonly>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 
-<script src="calc.js"></script>
-<script type="text/javascript">
-	var string_of_calc = document.getElementById("string_of_calc"),
-		result = document.getElementById("result");
+  <script src="js/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+  <script src="js/calc.js"></script>
+  <script type="text/javascript">
+    var calc_string = $("#calc_string"),
+      result = $("#result");
 
-	function parse_this_shit() {
-		var s = string_of_calc.value;
-		
-		s = s.replaceAll(" ", "");
-		s = s.replaceAll("trixie", "⇒");
-		s = s.replaceAll(":", "/");
-		s = s.replaceAll("\\", "/");
-		
-		result.textContent = calc(s);
-	}
-</script>
+    function calc_line() {
+      var s = calc_string.val();
+      
+      s = s.replaceAll(" ", "");
+      s = s.replaceAll("trixie", "⇒");
+      s = s.replaceAll(":", "/");
+      s = s.replaceAll("\\", "/");
+
+      result.val(calc(s));
+    }
+  </script>
+</html>
+
