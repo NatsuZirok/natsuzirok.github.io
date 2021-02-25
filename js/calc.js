@@ -1,4 +1,28 @@
-function calc(fullExpr) {
+/*
+ * fullLine - строка для калькуляции
+ * vars - массив переменных 
+*/
+function calc(fullLine, arr) {
+  fullLine = clearLine(fullLine)
+
+
+  return simpleLineCalc(fullLine);
+}
+
+function clearLine(string) {
+  string = string.replaceAll(" ", "");
+
+  string = string.replaceAll("=>", "⇒");
+  string = string.replaceAll("trixie", "⇒");
+
+  string = string.replaceAll(":", "/");
+  string = string.replaceAll("\\", "/");
+
+  return string;
+}
+
+//Строка без букв и функций
+function simpleLineCalc(fullExpr) {
   var tokens = [];
 
   do {
@@ -6,20 +30,21 @@ function calc(fullExpr) {
       return "\/0";
     }
 
-    tokens = fullExpr.match(/\(([0-9\+\-\*\/\^⇒]+)\)/g);
+    tokens = isParentheses(fullExpr);
 
     if(tokens) {
       for (var ix = 0, max = tokens.length; ix < max; ix++) {
-        var iCalc = simpleCalc(tokens[ix]);
+        var iCalc = parenthesesCalc(tokens[ix]);
         fullExpr = fullExpr.replaceAll(tokens[ix], iCalc);
       }
     }
-  } while (fullExpr.match(/\(([0-9\+\-\*\/\^⇒]+)\)/g))
+  } while (isParentheses(fullExpr))
 
-  return simpleCalc(fullExpr);
+  return parenthesesCalc(fullExpr);
 }
 
-function simpleCalc(str) {
+//Калькулятор обычной строки и того, что в скобках
+function parenthesesCalc(str) {
   var parsed = simpleParse(str);
 
   while (parsed.includes("^")) {
@@ -116,6 +141,7 @@ function trixie(a, b) {
   return parseInt(res, 2);
 }
 
+//Парсер обычных выражений
 function simpleParse(expr) {
   expr = expr.replaceAll(/[\(\)]/g, "");
 
@@ -128,4 +154,29 @@ function simpleParse(expr) {
   expr = expr.replaceAll(/(\d)\-(\d)/g, "$1\"-\"$2");
 
   return expr.split("\"");
+}
+
+//Парсер функций
+function functionParse(expr) {
+  return expr;
+}
+
+//Парсер переменных
+function varParse(expr) {
+  return expr;
+}
+
+//Есть ли скобки
+function isParentheses(line) {
+  return line.match(/\(([0-9\+\-\*\/\^⇒]+)\)/g)
+}
+
+//Есть ли функции
+function isFunction(line) {
+  return line.match(/f\([0-9\,]+\)/g);
+}
+
+//Есть ли переменные
+function isVar(line) {
+  return false;//заглушка
 }
