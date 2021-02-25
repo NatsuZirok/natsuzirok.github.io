@@ -1,70 +1,20 @@
-<!DOCTYPE html>
-<html lang="ru">
-  <head>
-    <title>Back in Time: Equestria</title>
-    <link rel="stylesheet" type="text/css" href="./css/bootstrap-reboot.min.css">
-    <link rel="stylesheet" type="text/css" href="./css/bootstrap-grid.min.css">
-    <link rel="stylesheet" type="text/css" href="./css/bite-ww.min.css">
-  </head>
-  <body>
-    <div class="container">
-      <div class="row">
-        <main class="no-gutters col-12">
-          <article class="card col-12">
-            <header class="card-header"><b>FAQ</b></header>
-            <div class="card-body">
-              <div class="card-title">Порядок выполнения?</div>
-              <ul class="list-group">
-                <li class="list-group-item"><del>1(JS) - Карусель слайдов</del></li>
-                <li class="list-group-item"><del>2(HTML+PHP) - Перенос на Data Life Engine</del></li>
-                <li class="list-group-item">3(PHP) - Плагины для DLE(Загатовка админпанели и PHTML):
-                  <ul class="list-group">
-                    <li class="list-group-item">1 - <del>Скин</del> MLP Minecraft Skin</li>
-                    <li class="list-group-item">2 - <del>Карусель слайдов</del> Owl Slide Loader</li>
-                    <li class="list-group-item">3 - <del>Помощь по модам/плагинам сервера</del> Minecraft Help List(Mod, Plugin)</li>
-                    <li class="list-group-item">4 - <del>Сервер лист</del> Minecraft Server List</li>
-                    <li class="list-group-item">5 - <del>Характеристики сервера (Ядро, CPU, RAM, SSD/HDD)</del> Minecraft Server Stats</li>
-                    <li class="list-group-item">6 - <del>Лор</del> Minecraft Server Lor</li>
-                    <li class="list-group-item">7 - <del>Карта</del> Minecraft Server Map</li>
-                    <li class="list-group-item">8 - Меню *Отложен</li>
-                  </ul>
-                </li>
-                <li class="list-group-item">4(JS+PHP) - Доработать плагины DLE
-                  <ul class="list-group">
-                    <li class="list-group-item">1 - Вьювер скина *Отложен</li>
-                    <li class="list-group-item">2 - Вьювер карты *Отложен</li>
-                    <li class="list-group-item">3 - Помощь по плагинам</li>
-                    <li class="list-group-item">4 - Помощь по модам</li>
-                  </ul>
-                </li>
-                <li class="list-group-item">5(JS+PHP) - Редактор скина *Отложен</li>
-                <li class="list-group-item">6(JS+PHP) - Плагины для DLE(Модерация в админпанели):
-                  <ul class="list-group">
-                    <li class="list-group-item">1 - Скин</li>
-                    <li class="list-group-item">2 - Карусель слайдов</li>
-                    <li class="list-group-item">3 - Помощь по модам/плагинам сервера</li>
-                    <li class="list-group-item">4 - Сервер лист</li>
-                    <li class="list-group-item">5 - Характеристики сервера (Ядро, CPU, RAM, SSD/HDD)</li>
-                    <li class="list-group-item">6 - Лор</li>
-                    <li class="list-group-item">7 - Карта</li>
-                    <li class="list-group-item">8 - Меню *Отложен</li>
-                    <li class="list-group-item">9 - Блокиратор деталей скина для MLP Minecraft Skin</li>
-                  </ul>
-                </li>
-                <li class="list-group-item">7(CSS) - Внешний вид сайта</li>
-                <li class="list-group-item">8(HTML+CSS+JS+PHP) - Магазин предметов</li>
-              </ul>
-              <hr>
-              <div class="card-title">Вопрос: Сроки выполнения?</div>
-              <ul class="list-group">
-                <li class="list-group-item">1-3п до 29-30 июня 2019</li>
-                <li class="list-group-item">4-6п до 31 июля 2019</li>
-                <li class="list-group-item">6-8п до 31 августа 2019</li>
-              </ul>
-            </div>
-          </article>
-        </main>
-      </div>
-    </div>
-  </body>
-</html>
+<input type="text" id="string_of_calc">
+<button onclick="parse_this_shit()">CALC!</button>
+<div id="result"></div>
+
+<script src="calc.js"></script>
+<script type="text/javascript">
+	var string_of_calc = document.getElementById("string_of_calc"),
+		result = document.getElementById("result");
+
+	function parse_this_shit() {
+		var s = string_of_calc.value;
+		
+		s = s.replaceAll(" ", "");
+		s = s.replaceAll("trixie", "⇒");
+		s = s.replaceAll(":", "/");
+		s = s.replaceAll("\\", "/");
+		
+		result.textContent = calc(s);
+	}
+</script>
