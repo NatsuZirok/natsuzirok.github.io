@@ -30,15 +30,13 @@ function simpleLineCalc(fullExpr) {
       return "\/0";
     }
 
-    tokens = isParentheses(fullExpr);
-
     if(tokens) {
       for (var ix = 0, max = tokens.length; ix < max; ix++) {
         var iCalc = parenthesesCalc(tokens[ix]);
         fullExpr = fullExpr.replaceAll(tokens[ix], iCalc);
       }
     }
-  } while (isParentheses(fullExpr))
+  } while (tokens = isParentheses(fullExpr))
 
   return parenthesesCalc(fullExpr);
 }
@@ -173,7 +171,7 @@ function isParentheses(line) {
 
 //Есть ли функции
 function isFunction(line) {
-  return line.match(/f\([0-9\,]+\)/g);
+  return line.match(/f\(([\-0-9\,]+)\)/g);
 }
 
 //Есть ли переменные
