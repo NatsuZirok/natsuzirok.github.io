@@ -95,7 +95,7 @@ function parenthesesCalc(str) {
 
   while (parsed.includes("^")) {
     var wlp_i = parsed.lastIndexOf("^");
-    parsed[wlp_i] = Math.pow( parseInt(parsed[(wlp_i-1)], 10), parseInt(parsed[(wlp_i+1)], 10) );
+    parsed[wlp_i] = Math.pow( parseFloat(parsed[(wlp_i-1)], 10), parseFloat(parsed[(wlp_i+1)], 10) );
     parsed.splice( (wlp_i+1), 1 );
     parsed.splice( (wlp_i-1), 1 );
   }
@@ -113,10 +113,10 @@ function parenthesesCalc(str) {
 
     switch(parsed[wfp_i]) {
       case "*":
-        parsed[wfp_i] = parseInt(parsed[(wfp_i-1)], 10) * parseInt(parsed[(wfp_i+1)], 10);
+        parsed[wfp_i] = parseFloat(parsed[(wfp_i-1)], 10) * parseFloat(parsed[(wfp_i+1)], 10);
         break;
       case "/":
-        parsed[wfp_i] = parseInt(parsed[(wfp_i-1)], 10) / parseInt(parsed[(wfp_i+1)], 10);
+        parsed[wfp_i] = parseFloat(parsed[(wfp_i-1)], 10) / parseFloat(parsed[(wfp_i+1)], 10);
         break;        
       default: 
         console.log("wtf *");
@@ -141,10 +141,10 @@ function parenthesesCalc(str) {
 
     switch(parsed[wfp_i]) {
       case "+":
-        parsed[wfp_i] = parseInt(parsed[(wfp_i-1)], 10) + parseInt(parsed[(wfp_i+1)], 10);
+        parsed[wfp_i] = parseFloat(parsed[(wfp_i-1)], 10) + parseFloat(parsed[(wfp_i+1)], 10);
         break;
       case "-":
-        parsed[wfp_i] = parseInt(parsed[(wfp_i-1)], 10) - parseInt(parsed[(wfp_i+1)], 10);
+        parsed[wfp_i] = parseFloat(parsed[(wfp_i-1)], 10) - parseFloat(parsed[(wfp_i+1)], 10);
         break;
       default: 
         console.log("wtf +");
@@ -157,7 +157,7 @@ function parenthesesCalc(str) {
 
   while (parsed.includes("⇒")) {
     var wlp_i = parsed.indexOf("⇒");
-    parsed[wlp_i] = trixie( parseInt(parsed[(wlp_i-1)], 10), parseInt(parsed[(wlp_i+1)], 10) );
+    parsed[wlp_i] = trixie( parseFloat(parsed[(wlp_i-1)], 10), parseFloat(parsed[(wlp_i+1)], 10) );
     parsed.splice( (wlp_i+1), 1 );
     parsed.splice( (wlp_i-1), 1 );
   }
@@ -187,7 +187,7 @@ function trixie(a, b) {
     res += a[i] <= b[i] ? "1" : "0";
   }
 
-  return parseInt(res, 2);
+  return parseFloat(res, 2);
 }
 
 //Парсер обычных выражений
