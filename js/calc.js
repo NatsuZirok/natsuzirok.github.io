@@ -100,15 +100,15 @@ function parenthesesCalc(str) {
     parsed.splice( (wlp_i-1), 1 );
   }
 
-  while (parsed.includes("*") || parsed.includes(":")) {
+  while (parsed.includes("*") || parsed.includes("/")) {
     if(parsed.indexOf("*") === -1) {
-      wfp_i = parsed.indexOf(":");
+      wfp_i = parsed.indexOf("/");
     }
-    if(parsed.indexOf(":") === -1) {
+    if(parsed.indexOf("/") === -1) {
       wfp_i = parsed.indexOf("*");
     }
-    if(parsed.indexOf(":") !== -1 && parsed.indexOf("*") !== -1) {
-      wfp_i = parsed.indexOf(":") < parsed.indexOf("*") ? parsed.indexOf(":") : parsed.indexOf("*");
+    if(parsed.indexOf("/") !== -1 && parsed.indexOf("*") !== -1) {
+      wfp_i = parsed.indexOf("/") < parsed.indexOf("*") ? parsed.indexOf("/") : parsed.indexOf("*");
     }
 
     switch(parsed[wfp_i]) {
