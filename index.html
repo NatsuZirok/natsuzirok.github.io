@@ -53,8 +53,8 @@
   <template id="var_body">
     <li class="list-group-item">
       <div class="input-group">
-        <span class="input-group-text pe-1"><span class="var"></span>=</span>
-        <input type="text" class="form-control var" required>
+        <span class="input-group-text pe-1"><span class="var_leter"></span>=</span>
+        <input type="text" class="form-control var" var="" required>
       </div>
     </li>
   </template>
@@ -89,10 +89,10 @@
       vars = isVar(line);
 
       if(vars !== null && vars.length > 0) {
-        vars_map = generate_vars(vars);
+        generate_vars(vars);
       }
       if(funcs !== null && funcs.length > 0) {
-        funcs_map = generate_functions(funcs);
+        generate_functions(funcs);
       }
     }
 
@@ -115,7 +115,21 @@
     }
 
     function get_vars() {
-      return true;
+      var block = true;
+
+      if($(".var").size !== 0) {
+        $(".var").each(function(ind, el) {
+          if($(el).val() == "") {
+            $(el).addClass("is-invalid");
+            block = false;
+          } else {
+            $(el).removeClass("is-invalid");
+            vars_map.set($(el).prop("var"), $(el).val());
+          }
+        });
+      }
+
+      return block;
     }
 
     function calc_line() {

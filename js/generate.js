@@ -50,4 +50,11 @@ function build_function(var_count) {
 
 function generate_vars(arrVars) {
   $("#vars_list").empty();
+
+  arrVars.forEach(function(val) {
+    var var_ = $("#var_body").contents().clone();
+    var_.find(".var_leter").text(val);
+    var_.find(".var").prop("var", val);
+    var_.appendTo("#vars_list");
+  });
 }
