@@ -4,10 +4,57 @@
  * funcs_line - карта строк для функций
  * vars - карта переменных 
 */
-function calc(fullLine, funcs, funcs_line, vars) {
-  fullLine = clearLine(fullLine)
+function calc(fullLine, funcs = new Map(), funcs_line = new Map(), vars = new Map()) {
+  fullLine = clearLine(fullLine);
+
+  fullLine.replaceAll(/f\(([\-0-9a-z\,]+)\)/g, "※($1)"); //костыль
+
+  if(vars.length !== 0) { //проходим сначала по переменным, вдруг будет функция f(x) ?
+    vars.forEach(function(val, key) {
+      fullLine = fullLine.replaceAll(key, val); 
+    }); 
+  }
+
+  fullLine.replaceAll(/※\(([\-0-9a-z\,]+)\)/g, "f($1)");
+
+  if(funcs.length !== 0) {
+
+    funcs.forEach(function(val, key) {
+      var funcRes = "";
+
+      val.forEach(function(func_code, ind) {
+        var nv = func_code;
+        var nf = func_code.match(/[a-z]/g);
+        nf.shift();
+        if(nf) {
+          nf.forEach(function(val) {
+            nv = nv.replaceAll(val, vars.get(val))
+          });
+        }
+        var funcVars = nv.match(/([\-0-9]+)/g);
+
+        funcRes = build_function_line(funcs_line.get(key), funcVars);
+        funcRes = clearLine(funcRes);
+        funcRes = simpleLineCalc(funcRes);
+        fullLine = fullLine.replaceAll(nv, funcRes);
+      });
+    });
+  }
 
   return simpleLineCalc(fullLine);
+}
+
+function build_function_line(line, vars = []) {
+  var cp_line = clearLine(line);
+  var lettersArr = ["a", "b", "c", "d", "e", "f", "g", "h", "i", 
+                    "j", "k", "l", "m", "n", "o", "p", "q", "r", 
+                    "s", "t", "u", "v", "w", "x", "y", "z"];
+
+  vars.forEach(function(val, ind) {
+    cp_line = cp_line.replaceAll(lettersArr[ind], val);
+  }); 
+
+  return cp_line;
 }
 
 function clearLine(string) {
@@ -47,44 +94,51 @@ function parenthesesCalc(str) {
   var parsed = simpleParse(str);
 
   while (parsed.includes("^")) {
-    var who_last_pos = str.match(/[\^]/g);
-
-    if (who_last_pos) {
-      var wlp_i = parsed.lastIndexOf("^");
-      parsed[wlp_i] = Math.pow( parseInt(parsed[(wlp_i-1)], 10), parseInt(parsed[(wlp_i+1)], 10) );
-      parsed.splice( (wlp_i+1), 1 );
-      parsed.splice( (wlp_i-1), 1 );
-    }
+    var wlp_i = parsed.lastIndexOf("^");
+    parsed[wlp_i] = Math.pow( parseInt(parsed[(wlp_i-1)], 10), parseInt(parsed[(wlp_i+1)], 10) );
+    parsed.splice( (wlp_i+1), 1 );
+    parsed.splice( (wlp_i-1), 1 );
   }
 
   while (parsed.includes("*") || parsed.includes(":")) {
-    var who_first_pos = str.match(/[\*\:]/g);
-
-    if (who_first_pos) {
-      var wfp_i = parsed.indexOf(who_first_pos[0]);
-
-      switch(parsed[wfp_i]) {
-        case "*":
-          parsed[wfp_i] = parseInt(parsed[(wfp_i-1)], 10) * parseInt(parsed[(wfp_i+1)], 10);
-          break;
-        case "/":
-          parsed[wfp_i] = parseInt(parsed[(wfp_i-1)], 10) / parseInt(parsed[(wfp_i+1)], 10);
-          break;        
-        default: 
-          console.log("wtf *: " + parsed[wfp_i] + " -> " + parsed.indexOf(who_first_pos[1]));
-          return;
-      }
-
-      parsed.splice( (wfp_i+1), 1 );
-      parsed.splice( (wfp_i-1), 1 );
-
+    if(parsed.indexOf("*") === -1) {
+      wfp_i = parsed.indexOf(":");
     }
+    if(parsed.indexOf(":") === -1) {
+      wfp_i = parsed.indexOf("*");
+    }
+    if(parsed.indexOf(":") !== -1 && parsed.indexOf("*") !== -1) {
+      wfp_i = parsed.indexOf(":") < parsed.indexOf("*") ? parsed.indexOf(":") : parsed.indexOf("*");
+    }
+
+    switch(parsed[wfp_i]) {
+      case "*":
+        parsed[wfp_i] = parseInt(parsed[(wfp_i-1)], 10) * parseInt(parsed[(wfp_i+1)], 10);
+        break;
+      case "/":
+        parsed[wfp_i] = parseInt(parsed[(wfp_i-1)], 10) / parseInt(parsed[(wfp_i+1)], 10);
+        break;        
+      default: 
+        console.log("wtf *");
+        return;
+    }
+
+    parsed.splice( (wfp_i+1), 1 );
+    parsed.splice( (wfp_i-1), 1 );
   }
 
   while (parsed.includes("+") || parsed.includes("-")) {
-    var who_first_pos = str.match(/[\+\-]/g);
+    var wfp_i = 0;
+    if(parsed.indexOf("+") === -1) {
+      wfp_i = parsed.indexOf("-");
+    }
+    if(parsed.indexOf("-") === -1) {
+      wfp_i = parsed.indexOf("+");
+    }
+    if(parsed.indexOf("-") !== -1 && parsed.indexOf("+") !== -1) {
+      wfp_i = parsed.indexOf("-") < parsed.indexOf("+") ? parsed.indexOf("-") : parsed.indexOf("+");
+    }
 
-    var wfp_i = parsed.indexOf(who_first_pos[0]);
     switch(parsed[wfp_i]) {
       case "+":
         parsed[wfp_i] = parseInt(parsed[(wfp_i-1)], 10) + parseInt(parsed[(wfp_i+1)], 10);
@@ -102,14 +156,10 @@ function parenthesesCalc(str) {
   }
 
   while (parsed.includes("⇒")) {
-    var who_last_pos = str.match(/[⇒]/g);
-
-    if (who_last_pos) {
-      var wlp_i = parsed.indexOf("⇒");
-      parsed[wlp_i] = trixie( parseInt(parsed[(wlp_i-1)], 10), parseInt(parsed[(wlp_i+1)], 10) );
-      parsed.splice( (wlp_i+1), 1 );
-      parsed.splice( (wlp_i-1), 1 );
-    }
+    var wlp_i = parsed.indexOf("⇒");
+    parsed[wlp_i] = trixie( parseInt(parsed[(wlp_i-1)], 10), parseInt(parsed[(wlp_i+1)], 10) );
+    parsed.splice( (wlp_i+1), 1 );
+    parsed.splice( (wlp_i-1), 1 );
   }
 
   return parsed[0];
@@ -151,18 +201,9 @@ function simpleParse(expr) {
   expr = expr.replaceAll("⇒", "\"⇒\"");
 
   expr = expr.replaceAll(/(\d)\-(\d)/g, "$1\"-\"$2");
+  expr = expr.replaceAll(/(\d)\-(\-\d)/g, "$1\"-\"$2");
 
   return expr.split("\"");
-}
-
-//Парсер функций
-function functionParse(expr) {
-  return expr;
-}
-
-//Парсер переменных
-function varParse(expr) {
-  return expr;
 }
 
 //Есть ли скобки
@@ -177,5 +218,5 @@ function isFunction(line) {
 
 //Есть ли переменные
 function isVar(line) {
-  return false;//заглушка
+  return line.match(/(?=([a-z]))[^f(]|^$/g);
 }

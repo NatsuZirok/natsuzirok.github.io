@@ -22,8 +22,6 @@ function generate_functions(arrFuncs) {
     funcs_map.set(funcVars.length, arrOfNums);
   });
 
-
-
   return funcs_map; //Возврат отсортированной(по кол-ву переменных) по функциям карты
 }
 
@@ -33,8 +31,8 @@ function build_function(var_count) {
     return; //Нахуя тебе больше 26 переменных в функции?! НАХУЯ?!
   }
 
-  var lettersArr = ["b", "c", "d", "e", "f", "g", "h", "i", "j", "k", 
-                    "l", "m", "n", "o", "p", "q", "r", "s", 
+  var lettersArr = ["b", "c", "d", "e", "f", "g", "h", "i", "j", 
+                    "k", "l", "m", "n", "o", "p", "q", "r", "s", 
                     "t", "u", "v", "w", "x", "y", "z"];
 
   var vars_line = "a";
@@ -50,11 +48,17 @@ function build_function(var_count) {
 
 function generate_vars(arrVars) {
   $("#vars_list").empty();
+  var added_vars = new Map();
 
   arrVars.forEach(function(val) {
-    var var_ = $("#var_body").contents().clone();
-    var_.find(".var_leter").text(val);
-    var_.find(".var").prop("var", val);
-    var_.appendTo("#vars_list");
+    if(!added_vars.has(val)){
+      var var_ = $("#var_body").contents().clone();
+      var_.find(".var_leter").text(val);
+      var_.find(".var").prop("var", val);
+      var_.appendTo("#vars_list");
+
+      added_vars.set(val, true)
+    }
+    
   });
 }
