@@ -1,10 +1,11 @@
 /*
  * fullLine - строка для калькуляции
- * vars - массив переменных 
+ * funcs - карта функций
+ * funcs_line - карта строк для функций
+ * vars - карта переменных 
 */
-function calc(fullLine, arr) {
+function calc(fullLine, funcs, funcs_line, vars) {
   fullLine = clearLine(fullLine)
-
 
   return simpleLineCalc(fullLine);
 }
@@ -171,7 +172,7 @@ function isParentheses(line) {
 
 //Есть ли функции
 function isFunction(line) {
-  return line.match(/f\(([\-0-9\,]+)\)/g);
+  return line.match(/f\(([\-0-9a-z\,]+)\)/g);
 }
 
 //Есть ли переменные

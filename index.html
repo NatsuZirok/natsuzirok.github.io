@@ -13,6 +13,7 @@
             <div class="card-body">
               <div class="input-group">
                 <input type="text" class="form-control" id="calc_string" placeholder="Input here">
+                <button class="btn btn-outline-secondary" type="button" onclick="functions_line()">Generate Functions/Vars</button>
                 <button class="btn btn-outline-secondary" type="button" onclick="calc_line()">Calculate!</button>
               </div>
             </div>
@@ -24,8 +25,7 @@
         <div class="col-md-9 mt-3">
           <div class="card">
             <div class="card-header">Функции</div>
-            <ul class="list-group list-group-flush" id="funcs_list">
-              
+            <ul class="list-group list-group-flush" id="func_list">
             </ul>
           </div>
         </div>
@@ -41,31 +41,24 @@
     </div>
   </body>
 
-  <template id="func_one_var">
+  <template id="func_body">
     <li class="list-group-item">
-      <div class="input-group" id="vars">
-        <span class="input-group-text pe-1">f(x)=</span>
-        <input type="text" class="form-control" style="flex-grow: 15" func-input required>
+      <div class="input-group">
+        <span class="input-group-text pe-1 f_start">f(<span class="func-var"></span>)=</span>
+        <input type="text" class="form-control func" func-var-count="0" required>
       </div>
     </li>
   </template>
 
-  <template id="func_body">
+  <template id="var_body">
     <li class="list-group-item">
-      <div class="input-group" id="vars">
-        <span class="input-group-text pe-1">f(</span>
-        <span id="vars_list"></span>
-        <span class="input-group-text px-1">)=</span>
-        <input type="text" class="form-control" style="flex-grow: 15" func-input required>
+      <div class="input-group">
+        <span class="input-group-text pe-1"><span class="var"></span>=</span>
+        <input type="text" class="form-control var" required>
       </div>
     </li>
   </template>
-  <template id="var_body">
-    <input type="text" class="form-control px-1" var-func-input value="a">
-  </template>
-  <template id="var_comma">
-    <span class="input-group-text px-1">,</span>
-  </template>
+
   <script src="js/jquery-3.5.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
   <script src="js/calc.js"></script>
@@ -74,29 +67,70 @@
     var calc_string = $("#calc_string"),
       result = $("#result");
     
-    var funcs_map = new Map();
+    var funcs_map = new Map(), vars_map = new Map();
+    var funcs_map_line = new Map();
 
     //проверка на функции и переменные
-    function check_line(line) {
+    function functions_line() {
+      calc_string.removeClass("is-invalid");
+      
+      var line = calc_string.val();
+
+      if(line == "") {
+        calc_string.addClass("is-invalid");
+        return;
+      }
+
+      line = clearLine(line);
+
       var funcs = [], vars = [];
+      
+      funcs = isFunction(line);
+      vars = isVar(line);
 
-      line = line.replaceAll(" ", "");
-
-      if(funcs = isFunction(line)) {
+      if(vars !== null && vars.length > 0) {
+        vars_map = generate_vars(vars);
+      }
+      if(funcs !== null && funcs.length > 0) {
         funcs_map = generate_functions(funcs);
       }
-      if(vars = isVar(line)) {
-        generate_vars(vars);
+    }
+
+    function get_functions() {
+      var block = true;
+
+      if($(".func").size !== 0) {
+        $(".func").each(function(ind, el) {
+          if($(el).val() == "") {
+            $(el).addClass("is-invalid");
+            block = false;
+          } else {
+            $(el).removeClass("is-invalid");
+            funcs_map_line.set($(el).prop("func-var-count"), $(el).val());
+          }
+        });
       }
 
-      return line;
+      return block;
+    }
+
+    function get_vars() {
+      return true;
     }
 
     function calc_line() {
-      var s = calc_string.val();
-      s = check_line(s);
+      calc_string.removeClass("is-invalid");
+
+      var line = calc_string.val();
+
+      if(line == "") {
+        calc_string.addClass("is-invalid");
+        return;
+      }
       
-      result.val(calc(s)); //Временная заглушка
+      if(get_functions() && get_vars()) {
+        result.val(calc(line, funcs_map, funcs_map_line, vars_map)); //Временная заглушка
+      }
     }
   </script>
 </html>
