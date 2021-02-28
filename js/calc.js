@@ -24,7 +24,7 @@ function calc(fullLine, funcs = new Map(), funcs_line = new Map(), vars = new Ma
 
       val.forEach(function(func_code, ind) {
         var nv = func_code;
-        var nf = func_code.match(/[a-z]/g);
+        var nf = func_code.match(/([a-zA-Z]+)/g);
         nf.shift();
         if(nf) {
           nf.forEach(function(val) {
@@ -33,7 +33,7 @@ function calc(fullLine, funcs = new Map(), funcs_line = new Map(), vars = new Ma
         }
         var funcVars = nv.match(/([\-0-9]+)/g);
 
-        funcRes = build_function_line(funcs_line.get(key), funcVars);
+        funcRes = build_function_line(funcs_line.get(key.toString()), funcVars);
         funcRes = clearLine(funcRes);
         funcRes = simpleLineCalc(funcRes);
         fullLine = fullLine.replaceAll(nv, funcRes);

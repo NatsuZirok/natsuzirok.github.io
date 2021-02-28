@@ -42,7 +42,7 @@ function build_function(var_count) {
 
   var func = $("#func_body").contents().clone();
   func.find(".func-var").text(vars_line);
-  func.find(".func").prop("func-var-count", var_count);
+  func.find(".func").attr("func-var-count", var_count);
   return func;
 }
 
@@ -54,7 +54,7 @@ function generate_vars(arrVars) {
     if(!added_vars.has(val)){
       var var_ = $("#var_body").contents().clone();
       var_.find(".var_leter").text(val);
-      var_.find(".var").prop("var", val);
+      var_.find(".var").attr("var", val);
       var_.appendTo("#vars_list");
 
       added_vars.set(val, true)

@@ -76,7 +76,7 @@
       
       var line = calc_string.val();
       line = clearLine(line);
-      
+
       if(line == "") {
         calc_string.addClass("is-invalid");
         return;
@@ -107,7 +107,7 @@
             block = false;
           } else {
             $(el).removeClass("is-invalid");
-            funcs_map_line.set($(el).prop("func-var-count"), $(el).val());
+            funcs_map_line.set($(el).attr("func-var-count"), $(el).val());
           }
         });
       }
@@ -125,7 +125,7 @@
             block = false;
           } else {
             $(el).removeClass("is-invalid");
-            vars_map.set($(el).prop("var"), $(el).val());
+            vars_map.set($(el).attr("var"), $(el).val());
           }
         });
       }
