@@ -75,7 +75,8 @@
       calc_string.removeClass("is-invalid");
       
       var line = calc_string.val();
-
+      line = clearLine(line);
+      
       if(line == "") {
         calc_string.addClass("is-invalid");
         return;
