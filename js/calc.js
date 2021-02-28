@@ -218,5 +218,5 @@ function isFunction(line) {
 
 //Есть ли переменные
 function isVar(line) {
-  return line.match(/(?=([a-z]))[^f(]|^$/g);
+  return line.match(/(?=[^f(])([a-zA-Z]+)|^$/g);
 }
