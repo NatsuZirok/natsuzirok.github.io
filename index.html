@@ -1,152 +1,430 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ru">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <title>Строковый калькулятор</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Изобретатель [Artificer] / Классы D&amp;D 5 / Tasha's Cauldron of Everything</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=cyrillic-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Neucha&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://dnd.su/beta/css/common.min.css?v=3.0.115">
+
   </head>
-  <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 mt-3">
-          <div class="card">
-            <div class="card-body">
-              <div class="input-group">
-                <input type="text" class="form-control" id="calc_string" placeholder="Input here">
-                <button class="btn btn-outline-secondary" type="button" onclick="functions_line()">Generate Functions/Vars</button>
-                <button class="btn btn-outline-secondary" type="button" onclick="calc_line()">Calculate!</button>
+  <body id="body">
+    <header>
+      <div class="wrapper">
+        <div class="header">
+          <h2 class="header-logo">
+            <a href="https://dnd.su/">DnD.su</a>
+          </h2>
+          <h1 class="header-page_title">
+            <a href="https://dnd.su/class/137-artificer/" class="page-item">Изобретатель [Artificer]</a>
+            <span> — </span>
+            <a href="https://dnd.su/class/">Классы</a>
+          </h1>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="cont">
+        <div class="center" style="flex: auto; max-width: none; ">
+          <div class="row">
+            <section class="block block-100 block-page_title">
+              <h1 class="center-page_title">
+                <a href="https://dnd.su/class/137-artificer/" class="page-item">Изобретатель [Artificer]</a>
+                <span> — </span>
+                <a href="https://dnd.su/class/">Классы</a>
+              </h1>
+            </section>
+            <section class="block block_100">
+              <div class="paper-1 card card__group- typoable" style="background-position:18% 0" data-id="article:137" data-typo-path="/class/137-artificer/" itemscope="" itemtype="https://schema.org/Article">
+                <div class="card-wrapper class_artificer" data-tags="[&quot;Классы&quot;, &quot;Изобретатель&quot;, &quot;class_main&quot;]">
+                  <div class="card__header">
+                    <h2 class="card-title" itemprop="name">
+                      <a href="https://dnd.su/class/137-artificer/" itemprop="url" class="item-link">Изобретатель [Artificer]</a>
+                    </h2>
+                  </div>
+                  <div class="card__body new-article" itemprop="articleBody">
+                    <ul class="params card__article-body">
+                      <li><strong>Источник:</strong> «<span>EVE Online</span>» &rArr; «<span>Миры содружества</span>» &rArr; «<span>Вселенная Серый Хаб</span>»</li>       
+                    </ul>
+                    <div class="desc card__article-body" itemprop="articleBody">
+                      <h4 class="tableTitle">
+                        <span id="artificer">Изобретатель</span>
+                      </h4>
+                      <div class="table-wrapper">
+                        <table>
+                          <tbody>
+                            <tr class="table_header">
+                              <td>Имя</td>
+                              <td>Бесон Мокс</td>
+                              <td>АИДК-М(М)-000 - Лайра Мокс</td>
+                              <td>АИДК-Б(М)-000 - Эйра Мокс</td>
+                              <td>АИДК-Т(М)-000 - Нейра Мокс</td>
+                            </tr>
+                            <tr>
+                              <td style="font-weight: bold;">Раса</td>
+                              <td>Человек(Альт.)</td>
+                              <td style="text-align:center;" colspan="3">Кованный</td>
+                            </tr>
+                            <tr>
+                              <td style="font-weight: bold;">Предыстория</td>
+                              <td>Исследователь дальнего космоса (ИДК)</td>
+                              <td>Медицинский ИДК</td>
+                              <td>Боевой ИДК</td>
+                              <td>Инженерный ИДК</td>
+                            </tr>
+                            <tr>
+                              <td style="font-weight: bold;">Класс</td>
+                              <td colspan="4" style="text-align: center;">Изобретатель</td>
+                            </tr>
+                            <tr>
+                              <td style="font-weight: bold;">Архетип</td>
+                              <td>Мастер андроидов</td>
+                              <td>Медицинский андроид</td>
+                              <td>Андроид телохранитель</td>
+                              <td>Андроид инженер</td>
+                            </tr>
+                            <tr>
+                              <td style="font-weight: bold;">Сила</td>
+                              <td>9</td>
+                              <td style="text-align:center;" colspan="3">9</td>
+                            </tr>
+                            <tr>
+                              <td style="font-weight: bold;">Ловкость</td>
+                              <td>10 (Р+1)</td>
+                              <td style="text-align:center;" colspan="3">10</td>
+                            </tr>
+                            <tr>
+                              <td style="font-weight: bold;">Телосложение</td>
+                              <td>14</td>
+                              <td style="text-align:center;" colspan="3">20 (Р+2)</td>
+                            </tr>
+                            <tr>
+                              <td style="font-weight: bold;">Интеллект</td>
+                              <td>18 (Р+1)</td>
+                              <td style="text-align:center;" colspan="3">-</td>
+                            </tr>
+                            <tr>
+                              <td style="font-weight: bold;">Мудрость</td>
+                              <td>15</td>
+                              <td style="text-align:center;" colspan="3">-</td>
+                            </tr>
+                            <tr>
+                              <td style="font-weight: bold;">Харизма</td>
+                              <td>6</td>
+                              <td style="text-align:center;" colspan="3">-</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <br><br>
+                      <h2 class="bigSectionTitle hide-next hide-next-h2">
+                        <span id="corporation">Исследовательская корпорация «Демм Аззар»</span>
+                      </h2>
+                      <div class="hide-wrapper">
+                        <h3 class="smallSectionTitle">Состав Корпорации</h3>
+                        <p><em>Статус: Активный. Зарегестрированно разумных: 5. Живых разумных: 2.</em></p>
+                        <div class="table-wrapper">
+                          <table>
+                            <tbody>
+                              <tr class="table_header">
+                                <td>Имя</td>
+                                <td>Иерархия</td>
+                                <td>Специализация</td>
+                                <td>Статус</td>
+                              </tr>
+                              <tr>
+                                <td style="font-weight: bold;">Бесон Мокс</td>
+                                <td>Глава корпорации</td>
+                                <td>Исследователь</td>
+                                <td>Жив</td>
+                              </tr>
+                              <tr>
+                                <td style="font-weight: bold;">Лайра Мокс</td>
+                                <td>Заместитель главы</td>
+                                <td>Медицина и Биология</td>
+                                <td>Мертва</td>
+                              </tr>
+                              <tr>
+                                <td style="font-weight: bold;">Эйра Мокс</td>
+                                <td>Глава защитников</td>
+                                <td>Телохранитель и пилот</td>
+                                <td>Мертва</td>
+                              </tr>
+                              <tr>
+                                <td style="font-weight: bold;">Нейра Мокс</td>
+                                <td>Глава инженерного и технического отделов</td>
+                                <td>Инженер и техник</td>
+                                <td>Мертва</td>
+                              </tr>
+                              <tr>
+                                <td style="font-weight: bold;">Наила Мокс</td>
+                                <td>Глава юридического отдела</td>
+                                <td>Главный юрист</td>
+                                <td>Жива</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <br>
+
+                        <h3 class="smallSectionTitle">Имущество компании</h3>
+                        <p><em>Имущество - Кораблей: 1, Станций: 0, Планетарных построек: 0, Планет: 0, Систем: 0</em></p>
+                        <div class="table-wrapper">
+                          <table>
+                            <tbody>
+                              <tr class="table_header">
+                                <td>Название</td>
+                                <td>Государство производитель</td>
+                                <td>Специализация</td>
+                                <td>Статус</td>
+                                <td>Кол-во</td>
+                              </tr>
+                              <tr>
+                                <td style="font-weight: bold;">Корвет 4 покаления</td>
+                                <td rowspan="6" style="vertical-align: middle; text-align: center;">Аратан</td>
+                                <td>Охранение</td>
+                                <td>Проданы</td>
+                                <td>4</td>
+                              </tr>
+                              <tr>
+                                <td style="font-weight: bold;">Корвет 4 покаления</td>
+                                <td>Охранение</td>
+                                <td>Уничтожены</td>
+                                <td>16</td>
+                              </tr>
+                              <tr>
+                                <td style="font-weight: bold;">Эсминец 4 покаления</td>
+                                <td>Охранение</td>
+                                <td>Проданы</td>
+                                <td>1</td>
+                              </tr>
+                              <tr>
+                                <td style="font-weight: bold;">Эсминец 4 покаления</td>
+                                <td>Охранение</td>
+                                <td>Уничтожены</td>
+                                <td>3</td>
+                              </tr>
+                              <tr>
+                                <td style="font-weight: bold;">Исследовательский фрегат 4 покаления</td>
+                                <td>Исследования</td>
+                                <td>Продан</td>
+                                <td>1</td>
+                              </tr>
+                              <tr>
+                                <td style="font-weight: bold;">Рейдер 5 покаления, модификация: Исследования</td>
+                                <td>Исследования</td>
+                                <td>Действует</td>
+                                <td>1</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <br>
+
+                        <h3 class="smallSectionTitle">Бесон Мокс</h3>
+                        <p><strong>Возраст:</strong> 25 земных лет</p>
+                        <p><strong>Рост:</strong> 172 см</p>
+                        <p><strong>Вес:</strong> 57 кг</p>
+                        <p><strong>Интеллект(ФПИ):</strong> Данные скрыты</p>
+                        <p>Родился и вырос в Империи Аратан на планете Дабрис, которая находится во внутреннем поясе миров. Уровня интеллекта хватило для установки исследовательской нейросети и последующей работы в Имперском Центре Исследований Дальнего Космоса на планетах.</p>
+                        <p>В помощники юному исследователю прислали Лайру Найт, исследователя биологии и медицины. Примерно через год произошло нападение наемников на базу, где были Бесон и Лайра, и для защиты исследователей была отправлена группа охраны с Эйрой Морц во главе.</p>
+                        <p>Через пару месяцев после нападения Бесон и Лайра решили стать парой, подписав брачный контракт. Через еще четыре месяца был подписан контракт Бесона и Нейры Лакс, которая делала и обслуживала исследовательское оборудование и корабли. Через полтора года, на другой базе, контракт с Эйрой Морц.</p>
+                        <p>Через два года вся группа исследователей (Бесон, Лайра, Нейра, Эйра), которая все это время работала прямо во Фронтире, решили завершить контракт и начать исследовать территорию Фронтира. Основав корпорацию с помощью дальней родственницы Бесона, которую проспонсировала Империя, и закупив необходимое, Исследовательский Фрегат, Эсминец и 5 корветов, отправились за Фронтир на 3 системы.</p>
+                        <p>Год все шло относительно спокойно, корпорация росла, были докуплены корабли - 3 эсминца и 15 корветов. Но вот дальше все пошла не очень хорошо. Нападение пиратов или наемников в месте прибытия с последующей потерей сразу двух эсминцев и 6 корветов и смертельным ранением Лайры во время абордажа. На обратном пути очередные пираты решили пощипать потрепанный флот и случайная болванка с тунельника пиратов попала в медотсек, где была Лайра и та погибла.</p>
+                        <p>Однако, один из пяти артефактов Джоре, Древних или Сверх-Древних (не успели разобраться, но забрали с собой) внезапно активировался и начал растить что-то, похожее на био-компьютер.</p>
+                        <p>Вторая смерть и запуска артефакта: Нейра Мокс погибла от пиратов на контрабандитской станции, к которой пристыковались для пополнения топлива и некоторых расходников.</p>
+                        <p>Третья смерть и запуска артефакта: Эйра Мокс на пути к ИЦИДК, опять от пиратов.</p>
+                        <p>Продав оставшиеся корабли и два артефакта, а потом купив Исследовательский Рейдер и перенеся на него активные артефакты, закупив отходники, отправился в ебеня на 20 прыжковых систем(10 парсек на 1 прыжок в 5 дней, 200 парсек) с ненавистью к нынешнему содружеству и пиратам, потратив на все это полгода(из-за синтеза топлива).</p>
+                        <br>
+
+                        <h3 class="smallSectionTitle">Лайра Мокс</h3>
+                        <p><strong>Возраст:</strong> 24 земных года</p>
+                        <p><strong>Рост:</strong> 180 см</p>
+                        <p><strong>Вес:</strong> 67 кг</p>
+                        <p><strong>Интеллект(ФПИ):</strong> Данные скрыты</p>
+                        <p>Родилась и выросла в Империи Аратан на планете Карс.</p>
+                        <br>
+
+                        <h3 class="smallSectionTitle">Эйра Мокс</h3>
+                        <p><strong>Возраст:</strong> 24 земных года</p>
+                        <p><strong>Рост:</strong> 197 см</p>
+                        <p><strong>Вес:</strong> 87 кг</p>
+                        <p><strong>Интеллект(ФПИ):</strong> Данные скрыты</p>
+                        <p>Родилась и выросла в Империи Аратан на планете Майл.</p>
+                        <br>
+
+                        <h3 class="smallSectionTitle">Нейра Мокс</h3>
+                        <p><strong>Возраст:</strong> 24 земных года</p>
+                        <p><strong>Рост:</strong> 163 см</p>
+                        <p><strong>Вес:</strong> 55 кг</p>
+                        <p><strong>Интеллект(ФПИ):</strong> Данные скрыты</p>
+                        <p>Родилась и выросла в Империи Аратан на планете Лус.</p>
+                        <br>
+
+                        <h3 class="smallSectionTitle">Наила Мокс</h3>
+                        <p><strong>Возраст:</strong> 23 земных года</p>
+                        <p><strong>Рост:</strong> 172 см</p>
+                        <p><strong>Вес:</strong> 57 кг</p>
+                        <p><strong>Интеллект(ФПИ):</strong> Данные скрыты</p>
+                        <p>Родилась и выросла в Империи Аратан на планете Дабрис.</p>
+                      </div>
+
+                      <br>
+                      <h2 class="bigSectionTitle hide-next hide-next-h2">
+                        <span id="droid-master">Раса - АИДК-М (Андроид Исследователь Дальнего Космоса - Магический)</span>
+                      </h2>
+                      <div class="hide-wrapper">
+                        <p><strong><em>Увеличение характеристик</em></strong>. Ваше значение Телосложения увеличивается на 2, а Интеллекта на 1.</p>
+                        <p><strong><em>Вид существа.</em></strong> Вы — Конструкт.</p>
+                        <p><strong><em>Возраст</em></strong>. Не важен.</p>
+                        <p><strong><em>Мировоззрение</em></strong>. <span class="tooltip tooltipstered">Любое.</span></p>
+                        <p><strong><em>Размер</em></strong>. от 1,5 до 2 метров. Ваш размер — Средний.</p>
+                        <p><strong><em>Скорость</em></strong>. Базовая скорость ходьбы составляет 30 футов.</p>
+                        <p><strong><em>Стойкость кованых</em></strong>. Вы были созданы для того, чтобы обладать невероятной прочностью, что дало вам следующие преимущества:</p>
+                        <ul>
+                          <li>Вы совершаете с преимуществом спасброски от <span tooltip-for="condition.poisoned" class="tooltipstered tooltip">отравления</span>, а также вы получаете сопротивление урону ядом. </li>
+                          <li>У вас есть иммунитет к болезням. </li>
+                          <li>Вам не нужно есть, пить и дышать. </li>
+                          <li>Вам не нужно спать, и вас нельзя магически усыпить. </li>
+                        </ul>
+                        <p><strong><em>Отдых стража</em></strong>. Когда вы устраиваете продолжительный отдых, вы должны оставаться как минимум 6 часов без движения и активности, вместо сна. В таком состоянии вы становитесь неподвижны, но остаетесь в сознании и можете всё видеть и слышать. Это необходимо для пополнения заряда в аккумуляторах от встроенного реактора и переосмыслением информации.</p>
+                        <p><strong><em>Встроенная защита</em></strong>. Ваше тело имеет встроенную защиту, которую можно усилить доспехом:</p>
+                        <ul>
+                          <li>Вы получаете +1 к КД. </li>
+                          <li>Вы можете встраивать только те доспехи, которыми вы владеете, и не можете встраивать щиты. Чтобы надеть доспех, вы должны встроить его в свое тело. Для этого вы должны быть в контакте с доспехом в течение 1 часа. Чтобы снять доспех, вы должны потратить 1 час на их извлечение.</li>
+                          <li>Вы можете встраивать или извлекать доспехи во время отдыха. Пока вы живы, ваши доспехи не могут быть изъяты из вашего тела против вашей воли. </li>
+                        </ul>
+                        <p><strong><em>Лечащая машина.</em></strong> Если на вас накладывают заклинание <a href="/spells/258-mending/" target="_blank">починка [mending]</a><a href="/spells/258-mending/" target="_blank"></a>, вы можете потратить Кость Хитов, бросить её и восстановить количество хитов, равное результату броска + ваш модификатор Телосложения (минимум 1 хит).</p>
+                        <p><strong><em>Специальная сборка</em>.</strong> Вы получаете владения одним из навыков по вашему выбору и одним инструментом по вашему выбору.</p>
+                        <p><strong><em>Языки</em></strong>. Вы можете говорить, писать и читать на Общем, а также на одном дополнительном языке по вашему выбору.</p>
+                      </div>
+
+                      <br>
+                      <h2 class="bigSectionTitle hide-next hide-next-h2">
+                        <span id="droid-master">Мастер андроидов</span>
+                      </h2>
+                      <div class="hide-wrapper">
+                        <h3 class="smallSectionTitle">Мастер андроидов</h3>
+                        <p><em>3-й уровень, умение Мастера андроидов</em></p>
+                        <p>Вы можете создать андроидов в любом количестве, но одновременно будут активны (БМ + Интеллект)/3, минимум 1</p>
+                        <p>Малые Андроиды: размер - Крошечный, 1 слот</p>
+                        <p>Средние Андроиды: размер - Средний, 2 слота</p>
+                        <p>Большие Андроиды: размер - Большой, 3 слота</p>
+                        <p>Мехи: размер - Огромный, 4 слота</p>
+                        <p>Максимальная дальность управления - 1000 футов</p>
+                        <br>
+
+                        <h3 class="smallSectionTitle">Прямое управление</h3>
+                        <p><em>3-й уровень, умение Мастера андроидов</em></p>
+                        <p>Вы можете управлять любым своим андроидом напрямую. Ваше тело становится неедееспособным, а любые параметры и умения основанные на Интеллекте, Мудрости и Харизме полностью перезаписывают у андроида на мастера. Требуемый слот для андроида под прямым управлением опускается на единицу.</p>
+                        <p>Предел прямого управления - звездная система</p>
+                        <br>
+
+                        <h3 class="smallSectionTitle">Улучшение андроидов</h3>
+                        <p><em>5-й уровень, умение Мастера андроидов</em></p>
+                        <p>Вы можете увеличить характеристики своих андроидов заменяя их части тела.</p>
+                        <p>Минимум на разработку - 1 неделя</p>
+                        <p>4-Интеллект недель на разработку с 8 до 10</p>
+                        <p>6-Интеллект недель на разработку с 10 до 12</p>
+                        <p>8-Интеллект недель на разработку с 12 до 14</p>
+                        <p>10-Интеллект недель на разработку с 14 до 16</p>
+                        <p>12-Интеллект недель на разработку с 16 до 18</p>
+                        <p>14-Интеллект недель на разработку с 18 до 20</p>
+                        <br>
+                      </div>
+
+                      <h2 class="bigSectionTitle hide-next hide-next-h2">
+                        <span id="medical-droid">Медицинский АИДК</span>
+                      </h2>
+                      <div class="hide-wrapper">
+                        <p>Все андроиды строятся по единому принципу.</p>
+                        <br>
+                        
+                        <h3 class="smallSectionTitle">Активациия вспомагательного ИИ</h3>
+                        <p><em>3-й уровень, умение АИДК</em></p>
+                        <p>Андроид получает владение <span class="tooltipstered tooltip">инструментами химика</span>(включают в себя инструменты алхимика и отравителя).</p>
+                        <p>Можно использовать Интеллект для бросков Медицины вместо Мудрости</p>
+                        <p>Навыки "Медицина" и "Природа" получают еще +БМ, вне зависимости от владения/компетентности</p>
+                        <br>
+                        
+                        <h3 class="smallSectionTitle">ЗАКЛИНАНИЯ АИДК</h3>
+                        <p><em>3-й уровень, умение АИДК</em></p>
+                        <p>У вас всегда есть подготовленные заклинания, которые вы получаете на определенных уровнях, согласно таблице «Заклинания мастера-создателя». Для вас они считаются заклинаниями изобретателя, однако они не учитываются в общем количестве заклинаний, которые вы можете подготовить.</p>
+                        <h4 class="tableTitle">Заклинания медицинского АИДК</h4>
+                        <div class="table-wrapper">
+                          <table>
+                            <tbody>
+                              <tr class="table_header">
+                                <td>Уровень изобретателя</td>
+                                <td> Заклинания</td>
+                              </tr>
+                              <tr>
+                                <td>3</td>
+                                <td><a href="https://dnd.su/spells/144-healing_word/" target="_blank">Лечащее слово [Healing word]</a>, <a href="https://dnd.su/spells/78-goodberry/" target="_blank">Чудо-ягоды [Goodberry]</a></td>
+                              </tr>
+                              <tr>
+                                <td>5</td>
+                                <td><a href="https://dnd.su/spells/103-enhance_ability/" target="_blank">Улучшение характеристики [Enhance ability]</a>, <a href="https://dnd.su/spells/155-lesser_restoration/" target="_blank">Малое восстановление [Lesser restoration]</a></td>
+                              </tr>
+                              <tr>
+                                <td>9</td>
+                                <td><a href="https://dnd.su/spells/24-revivify/" target="_blank">Возрождение [Revivify]</a>, <a href="https://dnd.su/spells/170-mass_healing_word/" target="_blank">Множественное лечащее слово [Mass healing word]</a></td>
+                              </tr>
+                              <tr>
+                                <td>13</td>
+                                <td><a href="https://dnd.su/spells/104-death_ward/" target="_blank">Защита от смерти [Death ward]</a>, <a href="https://dnd.su/spells/118-fabricate/" target="_blank">Изготовление [Fabricate]</a></td>
+                              </tr>
+                              <tr>
+                                <td>17</td>
+                                <td><a href="https://dnd.su/spells/208-raise_dead/" target="_blank">Оживление [Raise dead]</a>, <a href="https://dnd.su/spells/39-greater_restoration/" target="_blank">Высшее восстановление [Greater restoration]</a></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <br>
+
+                        <h3 class="smallSectionTitle">###ДОПОЛНИТЕЛЬНАЯ АТАКА</h3>
+                        <p><em>5-й уровень, умение мастера-создателя</em></p>
+                        <p>Когда вы совершаете в свой ход действие Атака, то можете совершить две атаки вместо одной.</p>
+                        <br>
+
+                        <h3 class="smallSectionTitle">###Улучшенный боевой кулак</h3>
+                        <p><em>9-й уровень, умение мастера-создателя</em></p>
+                        <p>Вы улучшили свой боевой кулак как обычным, так и магическим способом. Он получает следующие преимущества:</p>
+                        <ul>
+                          <li>Когда вы инфузируете свой боевой кулак, вы можете наполнить его двумя инфузиями одновременно. Если обе инфузии дают бонусы к вашим броскам атаки или классу доспеха, вы получаете только наибольший бонус. </li>
+                          <li>Ваш боевой кулак теперь считается щитом, повышающим ваш Класс Доспеха на 2. Вы можете использовать его как оружие, даже если используете его в качестве щита. Вы можете инфузировать его, как если бы он одновременно считался простым рукопашным оружием и щитом. </li>
+                          <li>Ваше максимальное количество насыщенных магией предметов увеличивается на 1 при условии, что оно является частью вашего боевого кулака.</li>
+                        </ul>
+                        <br>
+
+                        <p><span style="color: rgb(105, 20, 20); font-weight: 600; text-transform: uppercase;">###Апофеоз конструирования</span></p>
+                        <p><em>15-й уровень, умение мастера-создателя </em></p>
+                        <p>Вы модифицировали себя, став практически невосприимчивым к слабостям плоти. Вы получаете следующие преимущества:</p>
+                        <ul>
+                          <li>Вы получаете сопротивление урону психической энергией и ядом, и вы невосприимчивы к состоянию <span tooltip-for="condition.poisoned" class="tooltipstered tooltip">отравленный</span>. </li>
+                          <li>Если на вас воздействует заклинание или магический эффект, вы можете решить считать себя конструктом, а не иным видом существа. </li>
+                          <li>Вы можете накладывать заклинания <a href="https://dnd.su/spells/262-antilife_shell/" target="_blank">преграда жизни [Antilife shell]</a> и <a href="https://dnd.su/spells/393-investiture_of_stone/" target="_blank">Облачение камня [Investiture of stone]</a> без использования ячейки заклинаний, подготовки и использования материальных компонентов при условии, что вы используете боевой кулак в качестве заклинательной фокусировки. Как только вы накладываете одно из этих заклинаний с помощью данного умения, вы не можете наложить его повторно, пока не закончите продолжительный отдых.</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div class="card-footer">
-              <input class="form-control" type="text" placeholder="Result" id="result" readonly>
-            </div>
+            </section>
           </div>
         </div>
-        <div class="col-md-9 mt-3">
-          <div class="card">
-            <div class="card-header">Функции</div>
-            <ul class="list-group list-group-flush" id="func_list">
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-3 mt-3">
-          <div class="card">
-            <div class="card-header">Переменные</div>
-            <ul class="list-group list-group-flush" id="vars_list">
-              
-            </ul>
-          </div>
-        </div>
+        <!---->
       </div>
-    </div>
+    </main>
   </body>
-
-  <template id="func_body">
-    <li class="list-group-item">
-      <div class="input-group">
-        <span class="input-group-text pe-1 f_start">f(<span class="func-var"></span>)=</span>
-        <input type="text" class="form-control func" func-var-count="0" required>
-      </div>
-    </li>
-  </template>
-
-  <template id="var_body">
-    <li class="list-group-item">
-      <div class="input-group">
-        <span class="input-group-text pe-1"><span class="var_leter"></span>=</span>
-        <input type="text" class="form-control var" var="" required>
-      </div>
-    </li>
-  </template>
-
-  <script src="js/jquery-3.5.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-  <script src="js/calc.js"></script>
-  <script src="js/generate.js"></script>
-  <script type="text/javascript">
-    var calc_string = $("#calc_string"),
-      result = $("#result");
-    
-    var funcs_map = new Map(), vars_map = new Map();
-    var funcs_map_line = new Map();
-
-    //проверка на функции и переменные
-    function functions_line() {
-      calc_string.removeClass("is-invalid");
-      
-      var line = calc_string.val();
-      line = clearLine(line);
-
-      if(line == "") {
-        calc_string.addClass("is-invalid");
-        return;
-      }
-
-      line = clearLine(line);
-
-      var funcs = [], vars = [];
-      
-      funcs = isFunction(line);
-      vars = isVar(line);
-
-      if(vars !== null && vars.length > 0) {
-        generate_vars(vars);
-      }
-      if(funcs !== null && funcs.length > 0) {
-        funcs_map = generate_functions(funcs);
-      }
-    }
-
-    function get_functions() {
-      var block = true;
-
-      if($(".func").size !== 0) {
-        $(".func").each(function(ind, el) {
-          if($(el).val() == "") {
-            $(el).addClass("is-invalid");
-            block = false;
-          } else {
-            $(el).removeClass("is-invalid");
-            funcs_map_line.set($(el).attr("func-var-count"), $(el).val());
-          }
-        });
-      }
-
-      return block;
-    }
-
-    function get_vars() {
-      var block = true;
-
-      if($(".var").size !== 0) {
-        $(".var").each(function(ind, el) {
-          if($(el).val() == "") {
-            $(el).addClass("is-invalid");
-            block = false;
-          } else {
-            $(el).removeClass("is-invalid");
-            vars_map.set($(el).attr("var"), $(el).val());
-          }
-        });
-      }
-
-      return block;
-    }
-
-    function calc_line() {
-      calc_string.removeClass("is-invalid");
-
-      var line = calc_string.val();
-
-      if(line == "") {
-        calc_string.addClass("is-invalid");
-        return;
-      }
-      
-      if(get_functions() && get_vars()) {
-        result.val(calc(line, funcs_map, funcs_map_line, vars_map)); //Временная заглушка
-      }
-    }
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script>
+    $(".hide-next").on("click", function() {
+        $(this).hasClass("active") ? $(this).removeClass("active").next().slideUp(100) : $(this).addClass("active").next().slideDown(100)
+    })
   </script>
 </html>
-
